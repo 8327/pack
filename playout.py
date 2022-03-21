@@ -30,6 +30,8 @@ class Playout:
         self.player.pause()
     def stop(self):
         self.player.stop()
+    def vol(self, value):
+        self.player.audio_set_volume(value)
 
 
 def execute(command, params):
@@ -41,10 +43,10 @@ def execute(command, params):
     elif command == 'stop':
         playout.stop()
     elif command == 'vol':
-        playout.audio_set_volume(params[0])
+        playout.vol(int(params[0]))
 
 def receive(message):
-    split = message.decode("utf-8".rstrip()).split()
+    split = message.split()
     if len(message) > 0:
         execute(split[0], split[1:])
     else:
