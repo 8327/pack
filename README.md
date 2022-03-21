@@ -1,2 +1,2 @@
 # pack
-The software that powers my speakers.
+The software that powers my speakers. Very early.
