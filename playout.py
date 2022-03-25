@@ -6,15 +6,11 @@ and interprets a simplistic set of audio commands (play, pause, vol, ...).
 
 """
 
+import localbus
 import os
 import socket
 import time
 import vlc
-import sys
-
-# todo
-sys.path.append('../bus')
-import bus
 
 media = None
 
@@ -53,7 +49,7 @@ def receive(message):
         print("empty message")
 
 playout = Playout()
-mybus = bus.Bus(receive)
+bus = localbus.Bus(receive)
 while True:
         time.sleep(1)
 
